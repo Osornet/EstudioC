@@ -10,7 +10,9 @@ int main(){
 
     resultado = add(a, b);
     printf("%d + %d = %d", a, b, resultado);
-    num = 5;
+    //num = 5;
+    printf("\ndigite numero: ");
+    scanf("%d", &num);
     printf("\n%d! = %d", num, factorial(num));
 
     return 0;
