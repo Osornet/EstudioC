@@ -19,8 +19,8 @@ int main(int argc , char** argv){
 
    char buffer[80];
 
-    FILE* fp = fopen("ejemplo.txt", "a");
-
+    FILE* fp = fopen("ejemplo.txt", "r");
+    FILE* fp2 = fopen("destino.txt", "w");
     /*
     primer parametro: cadena a guardar el contenido
     segundo parametro: tamaño de caracteres que queremos guardar del archivo a la cadena
@@ -28,9 +28,44 @@ int main(int argc , char** argv){
      */
     //fgets(buffer, 80, fp);
 
-    fprintf(fp,"\nHola este es el valor de pi: %f", PI);
+    //fprintf(fp,"\nHola este es el valor de pi: %f", PI);
+
+     int caracter, a = 0;
+    /* 
+    while((caracter = fgetc(fp))!= EOF){
+        if(caracter == 'a'){
+            a++;
+        }
+    }
+    printf("se han encontrado %d ases", a);
+    printf("\n");
+     */
+
+    char caracteres[80];
+    //solo lee una linea del archivo, si queremos leer mas de un alinea tenemos que utilizarlo varias veces.
+    //fgets(caracteres, 80, fp);
+
+
+    //leer varias lineas
+    /* while(fgets(caracteres, 80, fp) != NULL){
+        printf("%s", caracteres);
+    }
+ */
+
+
+    /* for (caracter = 0; caracter < 10; caracter++){
+        fputc(caracter, fp);
+    } */
+
+    while(fgets(caracteres, 80, fp) != NULL){
+        fputs(caracteres, fp2);
+    }
+  
+
 
     fclose(fp);
+    
+
 
 
     //printf("contenido del archivo: %s\n", buffer);
