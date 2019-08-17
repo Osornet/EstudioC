@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "archivo.h": "c"
+        "archivo.h": "c",
+        "unpackpromo.h": "c"
     }
 }
