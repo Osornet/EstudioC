@@ -39,6 +39,10 @@ void printItem(ItemMenu item);
 void printCampo(Campo campo);
 char** getListStringPromo(MenuPromocion menu);
 ItemMenu getItemByNomItem(char* nomItem, MenuPromocion menu);
+void compress(unsigned char *dest, unsigned char *source, unsigned long pair);
+unsigned char hex_value(unsigned char value);
+void split(unsigned char *dest, unsigned char *source, unsigned int pair);
+unsigned char hex_digit(unsigned char value);
 
 
 

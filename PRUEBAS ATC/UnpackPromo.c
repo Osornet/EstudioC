@@ -190,3 +190,29 @@ ItemMenu getItemByNomItem(char* nomItem, MenuPromocion menu){
     return item;
 }
 
+void compress(unsigned char *dest, unsigned char *source, unsigned long pair) {
+	while (pair) {
+		pair--;
+		*dest = (hex_value(*source++) << 4);
+		*dest++ += hex_value(*source++);
+	}
+}
+void split(unsigned char *dest, unsigned char *source, unsigned int pair) {
+	while (pair) {
+		pair--;
+		*dest++ = hex_digit((unsigned char) (*source >> 4));
+		*dest++ = hex_digit(*source++);
+	}
+}
+/**
+ * inputa value: 
+ */
+unsigned char hex_value(unsigned char value) {
+	return (((unsigned char) (value & 0x7f) >= 'A') ?
+			(unsigned char) (value - 7) : value) & 0x0f;
+}
+
+unsigned char hex_digit(unsigned char value) {
+	return ((value &= 0x0f) > 9) ? value + ('A' - 10) : value + '0';
+}
+
